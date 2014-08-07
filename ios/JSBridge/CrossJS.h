@@ -11,7 +11,7 @@
 
 @interface CrossJS : NSObject
 
-+(CrossJS*)Instance;
++(CrossJS*)getInstance;
 -(NSString*)loadJSFile: (NSString*) fileName;
 -(void) loadExecuteJSFile: (NSString*) fileName;
 -(void) setJSVariable: (NSString*)variablePath nativeValue: (id)value;

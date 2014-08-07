@@ -13,7 +13,7 @@
 //Singlethon Pattern
 static CrossJS* singleInstance;
 
-+(CrossJS*)Instance
++(CrossJS*)getInstance
 {
     if(singleInstance == nil){
         singleInstance = [[super allocWithZone:NULL] init];
@@ -42,10 +42,6 @@ JSContext* context;
         [self setJSVariable:@"console.log" nativeValue: ^(NSString *message) {
             NSLog(@"JS LOG: %@", message);
         }];
-//        [context evaluateScript:@"var console = {};"]; // make console an empty object
-//        context[@"console"][@"log"] = ^(NSString *message) {
-//            NSLog(@"%@", message);
-//        };
     }
     return self;
 }
@@ -61,6 +57,9 @@ JSContext* context;
     
     //Separando o nome da extensao
     NSRange range = [fileName rangeOfString: @"." options:NSBackwardsSearch];
+    if(!range.location){
+        [NSException raise:@"Informe um arquivo válido" format:nil];
+    }
     NSString* extension = [fileName substringFromIndex: range.location];
     NSString* name = [fileName substringToIndex: range.location];
     

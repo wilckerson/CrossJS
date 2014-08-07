@@ -22,11 +22,11 @@
     
     
     //Lendo e executando o arquivo javascript
-    [[CrossJS Instance] loadExecuteJSFile:@"Controller.js" ];
+    [[CrossJS getInstance] loadExecuteJSFile:@"Controller.js" ];
     
 
     //Conectando o javascript com a interface nativa
-    [[CrossJS Instance] setJSVariable: @"Controller.view" nativeValue: self];
+    [[CrossJS getInstance] setJSVariable: @"Controller.view" nativeValue: self];
     
 }
 
@@ -56,6 +56,6 @@
 
 - (IBAction)btnOnClick:(id)sender {
     
-    [[CrossJS Instance] executeJS:@"Controller.onClickSoma();" ];
+    [[CrossJS getInstance] executeJS:@"Controller.onClickSoma();" ];
 }
 @end
