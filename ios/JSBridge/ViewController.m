@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CrossJS.h"
 
 @interface ViewController ()
 
@@ -14,73 +15,19 @@
 
 @implementation ViewController
 
-NSString* jsCode; /* =
-@"var Controller = {"
-    "view: {"
-        "getNum1: function(){},"
-        "getNum2: function(){},"
-        "showMessage: function(msg){}"
-    "},"
-    "onClickSoma: function(){"
-        "var n1 = this.view.getNum1();"
-        "var n2 = this.view.getNum2();"
-        "if(!n1 || !n2){"
-            "this.view.showMessage('Informe os valores');"
-            "return;"
-        "}"
-        "var result = n1 * n2;"
-        "this.view.showMessage(result);"
-    "},"
-"};";
-                   */
-
-JSContext* context;
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    //Lendo o arquivo JS
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Controller" ofType:@"js"];
-    if (filePath) {
-        jsCode = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"%@",jsCode);
-    }
     
-    context = [[JSContext alloc] init];
-    [context evaluateScript:jsCode];
-    [context[@"Controller"] setValue: self forProperty: @"view"];
-    //context[@"Controller.view"] = self;
-    
-    [context setExceptionHandler:^(JSContext *context, JSValue *value) {
-        NSLog(@"%@", value);
-    }];
-    
-    //JSValue* value = [context evaluateScript:@"Controller.test();"];
-    //JSValue* value = [[context[@"Controller"] valueForProperty: @"view" ]valueForProperty:@"getNum1"] ;//[[[context[@"Controller"] valueForProperty: @"view" ] valueForProperty:@"getNum1"] callWithArguments:@[]];
-    //NSLog(@"%@",value);
-    
-    /*
-     JSContext* context = [[JSContext alloc] init];
-    [context evaluateScript : @"var g1 = '12';"];
-    NSLog(@"%@",context[@"g1"]);
-    
-    [context evaluateScript:@"function alterarValor(valor){ g1 = valor;}"];
-    
-    JSValue* func = context[@"alterarValor"];
-    [func callWithArguments:@[@"23"]];
-    
-    NSLog(@"%@",context[@"g1"]);
-    
-    context[@"JsBridgeView"] = self;
-    [context evaluateScript: @"g1 = JsBridgeView.getText();"];
-    NSLog(@"%@",context[@"g1"]);
-     */
-    
+    //Lendo e executando o arquivo javascript
+    [[CrossJS Instance] loadExecuteJSFile:@"Controller.js" ];
     
 
+    //Conectando o javascript com a interface nativa
+    [[CrossJS Instance] setJSVariable: @"Controller.view" nativeValue: self];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,22 +56,6 @@ JSContext* context;
 
 - (IBAction)btnOnClick:(id)sender {
     
-    [context evaluateScript:@"Controller.onClickSoma();"];
-    
-    /*
-     float num1 = [self.textEditor1.text floatValue];
-    float num2 = [self.textEditor2.text floatValue];
-    
-    float result = num1 + num2;
-    NSString* msg = [NSString stringWithFormat:@"%f",result];
-    
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle: @"Resultado"
-                                              message:msg
-                                              delegate:nil
-                                              cancelButtonTitle: @"OK"
-                                              otherButtonTitles:nil];
-    [alert show];
-     */
-    
+    [[CrossJS Instance] executeJS:@"Controller.onClickSoma();" ];
 }
 @end

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JavaScriptCore/JavaScriptCore.h>
 #import "JsBridgeView.h"
 
 @interface ViewController : UIViewController<JsBridgeView>
