@@ -38,11 +38,20 @@ public class CrossJS {
 		// standard objects (Object, Function, etc.)
 		scope = context.initStandardObjects();
 
-		// Mapeando a funcao console.log para o console Nativo
-		setJSVariable("console", new CrossJSLogWrapper());
-
 		// Mapeando os erros
 		context.setErrorReporter(new CrossJSErrorReporter());
+		
+		registerWrappers();
+	}
+
+	private void registerWrappers() {
+
+		// Mapeando a funcao console.log para o console Nativo
+		setJSVariable("console", new CrossJSLogWrapper());
+		
+		//Mapeando o objeto http para a implementacao nativa
+		setJSVariable("http",new CrossJSHttpWrapper(context,scope));
+
 	}
 
 	public Context getContext_Rhino() {

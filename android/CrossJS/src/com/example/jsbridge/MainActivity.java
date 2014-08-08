@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
 
 import CrossJS.CrossJS;
+import CrossJS.CrossJSHttpWrapper;
 import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -17,6 +20,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.mozilla.javascript.*;
 
 public class MainActivity extends ActionBarActivity implements JsBridgeView {
@@ -42,6 +47,7 @@ public class MainActivity extends ActionBarActivity implements JsBridgeView {
 			//Conectando o javascript com a interface nativa
 			CrossJS.getInstance().setJSVariable("Controller.view", this);
 			
+			CrossJS.getInstance().executeJS("http.get('http://jsonip.com',{ p1 : 'p1Value'},function(response){ console.log(response); Controller.view.showMessage(response); },function(){});");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
