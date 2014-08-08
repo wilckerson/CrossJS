@@ -47,10 +47,10 @@ public class CrossJS {
 	private void registerWrappers() {
 
 		// Mapeando a funcao console.log para o console Nativo
-		setJSVariable("console", new CrossJSLogWrapper());
+		setJSVariable("console", new LogWrapper());
 		
 		//Mapeando o objeto http para a implementacao nativa
-		setJSVariable("http",new CrossJSHttpWrapper(context,scope));
+		setJSVariable("$http",new HttpWrapper(context,scope));
 
 	}
 
