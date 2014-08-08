@@ -8,6 +8,7 @@ import org.mozilla.javascript.*;
 
 import android.content.ContextWrapper;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 public class CrossJS {
 
@@ -40,7 +41,7 @@ public class CrossJS {
 
 		// Mapeando os erros
 		context.setErrorReporter(new CrossJSErrorReporter());
-		
+
 		registerWrappers();
 	}
 
@@ -48,9 +49,9 @@ public class CrossJS {
 
 		// Mapeando a funcao console.log para o console Nativo
 		setJSVariable("console", new LogWrapper());
-		
-		//Mapeando o objeto http para a implementacao nativa
-		setJSVariable("$http",new HttpWrapper(context,scope));
+
+		// Mapeando o objeto http para a implementacao nativa
+		setJSVariable("$http", new HttpWrapper(context, scope));
 
 	}
 
@@ -74,12 +75,16 @@ public class CrossJS {
 		if (i > 0) {
 			extension = fileName.substring(i);
 		} else {
-			throw new Exception("Informe um arquivo v‡lido.");
+			String msg = "Invalid File.";
+			Log.e("loadJSFile", msg);
+			throw new Exception(msg);
 		}
 
 		// Verificando se a extensao Ž .js
 		if (!extension.equals(".js")) {
-			throw new Exception("N‹o Ž um arquivo JS.");
+			String msg = "This is not a JavaScript file.";
+			Log.e("loadJSFile", msg);
+			throw new Exception(msg);
 		}
 
 		// Lendo o arquivo JS
@@ -87,7 +92,9 @@ public class CrossJS {
 			InputStream fileStream = assetManager.open(fileName);
 			jsCode = convertStreamToString(fileStream);
 		} catch (Exception ex) {
-			throw new Exception(String.format("N‹o foi possivel ler o arquivo %s", fileName), ex);
+			String msg = String.format("Unable to read file %s",ex);
+			Log.e("loadJSFile", msg);
+			throw new Exception( msg);
 		}
 
 		return jsCode;
@@ -149,12 +156,13 @@ public class CrossJS {
 	}
 
 	public Object executeJS(String jsCode) {
-		// try {
-		Object result = context.evaluateString(scope, jsCode, "executeJS", 1, null);
-		return result;
-		// } catch (Exception ex) {
+		try {
+			Object result = context.evaluateString(scope, jsCode, "executeJS", 1, null);
+			return result;
+		} catch (Exception ex) {
 
-		// throw ex;
-		// }
+			Log.e("executeJS", ex.getMessage());
+		}
+		return null;
 	}
 }
