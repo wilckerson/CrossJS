@@ -40,7 +40,7 @@ JSContext* context;
         
         //Mapeando a funcao console.log para o console Nativo
         [self setJSVariable:@"console.log" nativeValue: ^(NSString *message) {
-            NSLog(@"JS LOG: %@", message);
+            NSLog(@"LogWrapper: %@", message);
         }];
     }
     return self;

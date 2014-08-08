@@ -21,9 +21,6 @@ import org.mozilla.javascript.*;
 
 public class MainActivity extends ActionBarActivity implements JsBridgeView {
 
-	//Context ctx;
-	//Scriptable scope;
-
 	EditText editText1;
 	EditText editText2;
 	Button btn1;
@@ -33,61 +30,19 @@ public class MainActivity extends ActionBarActivity implements JsBridgeView {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// doit("var widgets = Packages.android.widget;\n"
-		// + "var view = new widgets.TextView(TheActivity);\n"
-		// + "TheActivity.setContentView(view);\n"
-		// + "var text = 'Hello Android!\\nThis is JavaScript in action!';\n"
-		// + "view.append(text);");
-
 		editText1 = (EditText) findViewById(R.id.editText1);
 		editText2 = (EditText) findViewById(R.id.editText2);
 		btn1 = (Button) findViewById(R.id.button1);
 
-		// Create an execution environment.
-		//ctx = Context.enter();
-
-		// Turn compilation off.
-		//ctx.setOptimizationLevel(-1);
-
-		// Initialize a variable scope with bindnings for
-		// standard objects (Object, Function, etc.)
-		//scope = ctx.initStandardObjects();
-
-//		try {
-//			InputStream fileStream = getAssets().open("Controller.js");
-//			String fileContent = convertStreamToString(fileStream);
-//
-//			ctx.evaluateString(scope, fileContent, "Controller", 1, null);
-//			ScriptableObject controller = (ScriptableObject) scope.get(
-//					"Controller", null);
-//			ScriptableObject.putProperty(controller, "view",
-//					ctx.javaToJS(this, scope));
-//
-//			// ctx.evaluateString(scope, "Controller.onClickSoma()", "onClick",
-//			// 1,null);
-//
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		// String fileContent = readFromFile();
-//		catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
-		// doit(null);
 		try {
-			
-			//Lendo e executando o arquivo javascript
+
+			// Lendo e executando o arquivo javascript
 			CrossJS.getInstance().loadExecuteJSFile("js/Controller.js", getAssets());
 			
-			 //Conectando o javascript com a interface nativa
+			//Conectando o javascript com a interface nativa
 			CrossJS.getInstance().setJSVariable("Controller.view", this);
 			
-			Object result = CrossJS.getInstance().getContext_RhinoScope().get("Controller", null);
-			Log.v(null, CrossJS.getInstance().getContext_Rhino().toString(result));
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,40 +53,14 @@ public class MainActivity extends ActionBarActivity implements JsBridgeView {
 			@Override
 			public void onClick(View arg0) {
 
-				CrossJS.getInstance().executeJS("Controller.onClickSoma()");
+				CrossJS.getInstance().executeJS("Controller.onClickSoma();");
 
 			}
 		});
 
 	}
 
-	void doit(String code) {
-		// Create an execution environment.
-		Context cx = Context.enter();
-
-		// Turn compilation off.
-		cx.setOptimizationLevel(-1);
-
-		try {
-			// Initialize a variable scope with bindnings for
-			// standard objects (Object, Function, etc.)
-			Scriptable scope = cx.initStandardObjects();
-
-			// Set a global variable that holds the activity instance.
-			ScriptableObject.putProperty(scope, "View",
-					Context.javaToJS(this, scope));
-
-			// Evaluate the script.
-			cx.evaluateString(scope, "var a = View.getValue();", "doit:", 1,
-					null);
-			Object result = scope.get("a", null);
-			Log.v(null, cx.toString(result));
-
-		} finally {
-			Context.exit();
-		}
-	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

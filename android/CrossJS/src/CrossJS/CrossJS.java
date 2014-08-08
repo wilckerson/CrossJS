@@ -39,18 +39,21 @@ public class CrossJS {
 		scope = context.initStandardObjects();
 
 		// Mapeando a funcao console.log para o console Nativo
+		setJSVariable("console", new CrossJSLogWrapper());
 
+		// Mapeando os erros
+		context.setErrorReporter(new CrossJSErrorReporter());
 	}
 
 	public Context getContext_Rhino() {
 		return context;
 	}
+
 	public Scriptable getContext_RhinoScope() {
 		return scope;
 	}
 
-	public String loadJSFile(String fileName, AssetManager assetManager)
-			throws Exception {
+	public String loadJSFile(String fileName, AssetManager assetManager) throws Exception {
 
 		String jsCode;
 
@@ -75,23 +78,20 @@ public class CrossJS {
 			InputStream fileStream = assetManager.open(fileName);
 			jsCode = convertStreamToString(fileStream);
 		} catch (Exception ex) {
-			throw new Exception(String.format(
-					"N‹o foi possivel ler o arquivo %s", fileName), ex);
+			throw new Exception(String.format("N‹o foi possivel ler o arquivo %s", fileName), ex);
 		}
 
 		return jsCode;
 
 	}
 
-	public void loadExecuteJSFile(String fileName, AssetManager assetManager)
-			throws Exception {
+	public void loadExecuteJSFile(String fileName, AssetManager assetManager) throws Exception {
 
 		String jsCode = this.loadJSFile(fileName, assetManager);
 		context.evaluateString(scope, jsCode, "loadExecuteJSFile", 1, null);
 	}
 
-	private static String convertStreamToString(InputStream is)
-			throws Exception {
+	private static String convertStreamToString(InputStream is) throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		StringBuilder sb = new StringBuilder();
 		String line = null;
@@ -131,7 +131,8 @@ public class CrossJS {
 				// Se chegou na ultima variavel, executa
 				if (i + 1 == arrayVariables.length - 1) {
 					String finalVariable = arrayVariables[i + 1];
-					ScriptableObject.putProperty(currentValue, finalVariable, context.javaToJS(nativeValue, scope));
+
+					currentValue.put(finalVariable, currentValue, context.javaToJS(nativeValue, scope));
 					break;
 				}
 			}
@@ -139,8 +140,12 @@ public class CrossJS {
 	}
 
 	public Object executeJS(String jsCode) {
-		Object result = context.evaluateString(scope, jsCode, "executeJS", 1,
-				null);
+		// try {
+		Object result = context.evaluateString(scope, jsCode, "executeJS", 1, null);
 		return result;
+		// } catch (Exception ex) {
+
+		// throw ex;
+		// }
 	}
 }
