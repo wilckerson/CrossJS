@@ -23,6 +23,7 @@ static CrossJS* singleInstance;
 }
 
 JSContext* context;
+NSString* lastExecutedCode;
 
 - (id)init {
     if ( (self = [super init]) ) {
@@ -33,8 +34,8 @@ JSContext* context;
         
         //Interceptando os erros de JavaScript e exibindo no console
         [context setExceptionHandler:^(JSContext *context, JSValue *value) {
-            //NSLog(@"JS Exception: %@", value);
-            [NSException raise: nil format:@"JS Exception: %@",value];
+            NSLog(@"JS Exception: %@ %@",lastExecutedCode,value);
+            //[NSException raise: nil format:@"JS Exception: %@",value];
 
         }];
         
@@ -85,7 +86,7 @@ JSContext* context;
 -(void) loadExecuteJSFile: (NSString*) fileName
 {
     NSString* jsCode = [self loadJSFile: fileName];
-    [context evaluateScript: jsCode];
+    [context evaluateScript: jsCode withSourceURL:[NSURL URLWithString:fileName]];
 }
 
 -(void) setJSVariable: (NSString*)variablePath nativeValue: (id)value
@@ -131,8 +132,16 @@ JSContext* context;
 
 -(JSValue*) executeJS: (NSString*) jsCode
 {
-    JSValue* result = [context evaluateScript:jsCode];
-    return result;
+    //@try {
+        lastExecutedCode = jsCode;
+        JSValue* result = [context evaluateScript:jsCode];
+        return result;
+        
+    //}
+    //@catch (NSException * e) {
+      //  NSLog(@"Exception: %@", e);
+    //}
+    
 }
 
 @end;

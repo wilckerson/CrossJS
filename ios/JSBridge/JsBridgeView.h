@@ -11,8 +11,8 @@
 
 @protocol JsBridgeView <JSExport>
 
--(float) getNum1;
--(float) getNum2;
+-(NSNumber*) getNum1;
+-(NSNumber*) getNum2;
 -(void) showMessage: (NSString*) msg;
 
 @end

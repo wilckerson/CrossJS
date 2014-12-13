@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		275A648D1992F6D900FA408F /* CrossJS.m in Sources */ = {isa = PBXBuildFile; fileRef = 275A648C1992F6D900FA408F /* CrossJS.m */; };
-		275A648F19931EBA00FA408F /* Controller.js in Sources */ = {isa = PBXBuildFile; fileRef = 275A648E19931EBA00FA408F /* Controller.js */; };
-		275A649019931EC100FA408F /* Controller.js in Resources */ = {isa = PBXBuildFile; fileRef = 275A648E19931EBA00FA408F /* Controller.js */; };
 		27AC16A9199017F700DFC781 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16A8199017F700DFC781 /* Foundation.framework */; };
 		27AC16AB199017F700DFC781 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16AA199017F700DFC781 /* CoreGraphics.framework */; };
 		27AC16AD199017F700DFC781 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16AC199017F700DFC781 /* UIKit.framework */; };
@@ -19,12 +17,10 @@
 		27AC16BC199017F700DFC781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27AC16BA199017F700DFC781 /* Main.storyboard */; };
 		27AC16BF199017F700DFC781 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC16BE199017F700DFC781 /* ViewController.m */; };
 		27AC16C1199017F700DFC781 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC16C0199017F700DFC781 /* Images.xcassets */; };
-		27AC16C8199017F700DFC781 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16C7199017F700DFC781 /* XCTest.framework */; };
 		27AC16C9199017F700DFC781 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16A8199017F700DFC781 /* Foundation.framework */; };
 		27AC16CA199017F700DFC781 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16AC199017F700DFC781 /* UIKit.framework */; };
-		27AC16D2199017F700DFC781 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27AC16D0199017F700DFC781 /* InfoPlist.strings */; };
-		27AC16D4199017F700DFC781 /* JSBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AC16D3199017F700DFC781 /* JSBridgeTests.m */; };
 		27AC16DE1990186C00DFC781 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AC16DD1990186C00DFC781 /* JavaScriptCore.framework */; };
+		27DCC00F1A3BE02400AFAB5D /* SumController.js in Resources */ = {isa = PBXBuildFile; fileRef = 27DCC00E1A3BE02400AFAB5D /* SumController.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +36,6 @@
 /* Begin PBXFileReference section */
 		275A648B1992F6D900FA408F /* CrossJS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossJS.h; sourceTree = "<group>"; };
 		275A648C1992F6D900FA408F /* CrossJS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossJS.m; sourceTree = "<group>"; };
-		275A648E19931EBA00FA408F /* Controller.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = Controller.js; path = ../../js/Controller.js; sourceTree = "<group>"; };
 		27AC16A5199017F700DFC781 /* JSBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC16A8199017F700DFC781 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		27AC16AA199017F700DFC781 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,12 +51,9 @@
 		27AC16BE199017F700DFC781 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		27AC16C0199017F700DFC781 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27AC16C6199017F700DFC781 /* JSBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27AC16C7199017F700DFC781 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		27AC16CF199017F700DFC781 /* JSBridgeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSBridgeTests-Info.plist"; sourceTree = "<group>"; };
-		27AC16D1199017F700DFC781 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		27AC16D3199017F700DFC781 /* JSBridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSBridgeTests.m; sourceTree = "<group>"; };
 		27AC16DD1990186C00DFC781 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		27AC16DF1990212300DFC781 /* JsBridgeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsBridgeView.h; sourceTree = "<group>"; };
+		27DCC00E1A3BE02400AFAB5D /* SumController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = SumController.js; path = ../../js/SumController.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27AC16C8199017F700DFC781 /* XCTest.framework in Frameworks */,
 				27AC16CA199017F700DFC781 /* UIKit.framework in Frameworks */,
 				27AC16C9199017F700DFC781 /* Foundation.framework in Frameworks */,
 			);
@@ -93,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				27AC16AE199017F700DFC781 /* JSBridge */,
-				27AC16CD199017F700DFC781 /* JSBridgeTests */,
 				27AC16A7199017F700DFC781 /* Frameworks */,
 				27AC16A6199017F700DFC781 /* Products */,
 			);
@@ -115,7 +105,6 @@
 				27AC16A8199017F700DFC781 /* Foundation.framework */,
 				27AC16AA199017F700DFC781 /* CoreGraphics.framework */,
 				27AC16AC199017F700DFC781 /* UIKit.framework */,
-				27AC16C7199017F700DFC781 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -123,7 +112,7 @@
 		27AC16AE199017F700DFC781 /* JSBridge */ = {
 			isa = PBXGroup;
 			children = (
-				275A648E19931EBA00FA408F /* Controller.js */,
+				27DCC00E1A3BE02400AFAB5D /* SumController.js */,
 				27AC16B7199017F700DFC781 /* AppDelegate.h */,
 				27AC16B8199017F700DFC781 /* AppDelegate.m */,
 				27AC16BA199017F700DFC781 /* Main.storyboard */,
@@ -145,24 +134,6 @@
 				27AC16B1199017F700DFC781 /* InfoPlist.strings */,
 				27AC16B4199017F700DFC781 /* main.m */,
 				27AC16B6199017F700DFC781 /* JSBridge-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		27AC16CD199017F700DFC781 /* JSBridgeTests */ = {
-			isa = PBXGroup;
-			children = (
-				27AC16D3199017F700DFC781 /* JSBridgeTests.m */,
-				27AC16CE199017F700DFC781 /* Supporting Files */,
-			);
-			path = JSBridgeTests;
-			sourceTree = "<group>";
-		};
-		27AC16CE199017F700DFC781 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				27AC16CF199017F700DFC781 /* JSBridgeTests-Info.plist */,
-				27AC16D0199017F700DFC781 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -243,7 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275A649019931EC100FA408F /* Controller.js in Resources */,
+				27DCC00F1A3BE02400AFAB5D /* SumController.js in Resources */,
 				27AC16C1199017F700DFC781 /* Images.xcassets in Resources */,
 				27AC16B3199017F700DFC781 /* InfoPlist.strings in Resources */,
 				27AC16BC199017F700DFC781 /* Main.storyboard in Resources */,
@@ -254,7 +225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27AC16D2199017F700DFC781 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +238,6 @@
 				275A648D1992F6D900FA408F /* CrossJS.m in Sources */,
 				27AC16BF199017F700DFC781 /* ViewController.m in Sources */,
 				27AC16B9199017F700DFC781 /* AppDelegate.m in Sources */,
-				275A648F19931EBA00FA408F /* Controller.js in Sources */,
 				27AC16B5199017F700DFC781 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27AC16D4199017F700DFC781 /* JSBridgeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,14 +274,6 @@
 				27AC16BB199017F700DFC781 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		27AC16D0199017F700DFC781 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27AC16D1199017F700DFC781 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
