@@ -26,6 +26,7 @@ namespace MasterDetail.wp8
     {
         public ItemListDetail()
         {
+            
             this.InitializeComponent();
            // HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }

@@ -38,6 +38,7 @@ namespace MasterDetail.wp8
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             CrossJS.Instance.ExecuteJS("ListPresenter.native_onLoad();");
         }
 

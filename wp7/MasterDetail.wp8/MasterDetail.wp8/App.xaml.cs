@@ -131,6 +131,7 @@ namespace MasterDetail.wp8
 
         private void LoadJSFiles()
         {
+            
             CrossJSLib.CrossJS.Instance.LoadJSFile("/js/Model/ItemsModel.js");
             CrossJSLib.CrossJS.Instance.LoadJSFile("/js/Presenter/ItemDetailPresenter.js");
             CrossJSLib.CrossJS.Instance.LoadJSFile("/js/Presenter/ListPresenter.js");

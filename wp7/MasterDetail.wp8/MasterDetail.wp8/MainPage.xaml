@@ -10,10 +10,11 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="53*"/>
+            <RowDefinition Height="53"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="List View"  Style="{StaticResource HeaderTextBlockStyle}" Margin="20,-10,0,0"/>
-        <ListView Grid.Row="1" Name="listView" ItemClick="listView_ItemClick"/>
+        <ListView Grid.Row="2" Name="listView" ItemClick="listView_ItemClick"/>
+        <WebView Grid.Row="1"></WebView>
     </Grid>
 </Page>
