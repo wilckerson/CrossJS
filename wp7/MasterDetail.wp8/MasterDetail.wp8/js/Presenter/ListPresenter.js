@@ -6,8 +6,8 @@ var ListView = {
 var ListPresenter = {
     
     native_onLoad : function(){
-     
-        ListView.populateList(ItemsModel.items);
+        var jsonResult = JSON.stringify(ItemsModel.items);
+        ListView.populateList(jsonResult);
     },
     
     native_onItemClick: function(idx){

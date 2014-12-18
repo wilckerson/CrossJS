@@ -95,6 +95,7 @@ namespace MasterDetail.wp8
                 {
                     throw new Exception("Failed to create initial page");
                 }
+                LoadJSFiles();
             }
 
             // Ensure the current window is active
@@ -126,6 +127,13 @@ namespace MasterDetail.wp8
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        private void LoadJSFiles()
+        {
+            CrossJSLib.CrossJS.Instance.LoadJSFile("/js/Model/ItemsModel.js");
+            CrossJSLib.CrossJS.Instance.LoadJSFile("/js/Presenter/ItemDetailPresenter.js");
+            CrossJSLib.CrossJS.Instance.LoadJSFile("/js/Presenter/ListPresenter.js");
         }
     }
 }
