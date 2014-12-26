@@ -22,7 +22,7 @@ var todoItemPresenter = {
 
         todoItemNativeView.setSaveButtonEnable(false);
         
-        if (!todoItemPresenter.itemIndex) {
+        if (todoItemPresenter.itemIndex == undefined || todoItemPresenter.itemIndex < 0) {
             todoItemNativeView.setTitleText("New item");
             todoItemNativeView.setDeleteButtonVisibility(false);
         } else {
@@ -50,7 +50,7 @@ var todoItemPresenter = {
         var description = todoItemNativeView.getDescriptionText();
 
         if (description) {
-            if (!todoItemPresenter.itemIndex) //New Item
+            if (todoItemPresenter.itemIndex == undefined || todoItemPresenter.itemIndex < 0) //New Item
             {
                 var item = {
                     description: description,

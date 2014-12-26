@@ -20,6 +20,7 @@
 
 @interface TodoListViewController : UIViewController <TodoListNativeView,UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *dss;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIView *emptyMsg;
 @end

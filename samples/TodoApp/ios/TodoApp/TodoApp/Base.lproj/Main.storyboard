@@ -69,6 +69,7 @@
                     <navigationItem key="navigationItem" title="TodoApp" id="IZF-F5-fKf"/>
                     <connections>
                         <outlet property="emptyMsg" destination="Psf-5b-a0U" id="S91-ou-BgA"/>
+                        <outlet property="tableView" destination="OAt-5v-aR1" id="C79-Rq-NtJ"/>
                         <segue destination="PLv-8q-gyB" kind="show" identifier="TodoItemViewController" id="QIE-6e-ZVJ"/>
                     </connections>
                 </tableViewController>
