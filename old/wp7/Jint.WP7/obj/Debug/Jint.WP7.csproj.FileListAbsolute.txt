@@ -1,0 +1,4 @@
+C:\Users\Wilckerson\documents\visual studio 2010\Projects\PhoneApp1\Jint.WP7\Bin\Debug\Jint.WP7.dll
+C:\Users\Wilckerson\documents\visual studio 2010\Projects\PhoneApp1\Jint.WP7\Bin\Debug\Jint.WP7.pdb
+C:\Users\Wilckerson\documents\visual studio 2010\Projects\PhoneApp1\Jint.WP7\obj\Debug\Jint.WP7.dll
+C:\Users\Wilckerson\documents\visual studio 2010\Projects\PhoneApp1\Jint.WP7\obj\Debug\Jint.WP7.pdb

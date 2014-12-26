@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/wilckersonganda/Documents/Dev/CrossJS/lib/ios/CrossJSLib/DerivedData/CrossJSLib/Build/Products/Debug-iphonesimulator/CrossJSLib.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CrossJS.h",
+          'external-contents': "/Users/wilckersonganda/Documents/Dev/CrossJS/lib/ios/CrossJSLib/CrossJSLib/CrossJS.h"
+        },
+        {
+          'type': 'file',
+          'name': "CrossJSLib-Swift.h",
+          'external-contents': "/Users/wilckersonganda/Documents/Dev/CrossJS/lib/ios/CrossJSLib/DerivedData/CrossJSLib/Build/Products/Debug-iphonesimulator/CrossJSLib.framework/Headers/CrossJSLib-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/wilckersonganda/Documents/Dev/CrossJS/lib/ios/CrossJSLib/DerivedData/CrossJSLib/Build/Products/Debug-iphonesimulator/CrossJSLib.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/wilckersonganda/Documents/Dev/CrossJS/lib/ios/CrossJSLib/DerivedData/CrossJSLib/Build/Products/Debug-iphonesimulator/CrossJSLib.framework/Modules/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
