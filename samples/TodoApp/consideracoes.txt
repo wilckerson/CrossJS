@@ -1,0 +1,7 @@
+iOS:
+-Foi necessário criar um protocolo herdando de JSExport e implementar na classe da ViewController
+-Foi necessário transferir os dados em JSON e dar um parse no nativo para uma estrutura tipada
+
+
+Futuro:
+-Pensar como lidar com callbacks
